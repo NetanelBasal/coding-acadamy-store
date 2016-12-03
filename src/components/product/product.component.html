@@ -1,0 +1,17 @@
+<div class="thumbnail">
+  <img :src="product.img" style="height: 130px;">
+  <div class="caption">
+    <h4>{{product.title}}</h4>
+    <p>{{product.description}}</p>
+    <p style="font-size: 18px; color: #67b168;"><b>{{product.price}}{{product.currency}}</b></p>
+    <p><b>Quantity:</b></p>
+    <select class="form-control"
+            @change="$emit('quantityChange', {quantity: $event.target.value, product} )"
+            name="quantity"
+            :value="product.quantity">
+      <option value="0">0</option>
+      <option v-for="n in 10">{{n}}</option>
+    </select>
+  </div>
+</div>
+
